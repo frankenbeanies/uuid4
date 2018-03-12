@@ -6,7 +6,7 @@ An RFC 4122 compliant UUID library
 
 [MIT](LICENSE)
 
-## Usage
+## Methods
 
 ### New()
 
@@ -21,6 +21,15 @@ uuid := uuid4.New()
 Provides an RFC 4122 comliant string representation of the UUID4
 
 ```go
-uuidStr := uuid4.New()
+uuidStr := uuid4.New().String()
 fmt.Println(uuidStr)
+```
+
+### Bytes()
+
+Provides the byte representation of UUID4
+
+```go
+uuidBytes := uuid4.New().Bytes()
+fmt.Println(uuid)
 ```

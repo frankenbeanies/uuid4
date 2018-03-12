@@ -29,3 +29,10 @@ func (uuid UUID4) String() string {
 
 	return str[:8] + "-" + str[8:12] + "-" + str[12:16] + "-" + str[16:20] + "-" + str[20:]
 }
+
+// Bytes provides the bytes of the uuid
+func (uuid UUID4) Bytes() []byte {
+	val := make([]byte, 16)
+	copy(val, uuid.bytes)
+	return val
+}
