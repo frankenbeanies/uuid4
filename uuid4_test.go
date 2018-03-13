@@ -117,11 +117,21 @@ func TestUUID4ParseStringReturnsErrorOnIndex16NotValid(t *testing.T) {
 }
 
 // TestUUID4ParseStringReturnsErrorOnBadLength tests that ParseString() gives an error when str is not 32 characters
-func TestUUIDParseStringReturnsErrorOnBadLength(t *testing.T) {
+func TestUUID4ParseStringReturnsErrorOnBadLength(t *testing.T) {
 	str := "cc2161ae-33c1-4cb1-aa53-e81000f20a"
 	_, err := ParseString(str)
 
 	if err == nil {
 		t.Errorf("ParseString() should have failed. str is invalid length")
+	}
+}
+
+// TestUUID4ParseStringReturnsErrorOnInvalidHex tests that ParseString() gives an error when str is not valid hex
+func TestUUID4ParseStringReturnsErrorOnInvalidHex(t *testing.T) {
+	str := "cc2161ae-33c1-4cb1-aa53-e81g00f20a30"
+	_, err := ParseString(str)
+
+	if err == nil {
+		t.Errorf("ParseString() should have failed. str is not hex")
 	}
 }
