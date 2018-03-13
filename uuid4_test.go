@@ -1,6 +1,7 @@
 package uuid4
 
 import (
+	"strings"
 	"testing"
 )
 
@@ -60,5 +61,67 @@ func TestUUID4BytesNotInternalSlice(t *testing.T) {
 
 	if bytes[3] == uuid.bytes[3] {
 		t.Errorf("Bytes() and bytes are referencing the same slice")
+	}
+}
+
+//TestUUID4ParseStringCorrectlyParses tests that ParseString() correctly parses the string to a uuid4
+func TestUUID4ParseStringCorrectlyParses(t *testing.T) {
+	str := "cc2161ae-33c1-4cb1-aa53-e81000f20a30"
+	uuid, err := ParseString(str)
+
+	if err != nil {
+		t.Errorf("Error Parsing the string")
+		return
+	}
+
+	if uuid.String() != str {
+		t.Errorf("ParseString() did not correctly parse")
+	}
+}
+
+//TestUUID4ParseStringCorrectlyParsesWithoutDashes tests that ParseString() correctly parses the string to a uuid4
+func TestUUID4ParseStringCorrectlyParsesWithoutDashes(t *testing.T) {
+	str := "cc2161ae33c14cb1aa53e81000f20a30"
+	uuid, err := ParseString(str)
+
+	if err != nil {
+		t.Errorf("Error Parsing the string")
+		return
+	}
+
+	if str != strings.Replace(uuid.String(), "-", "", -1) {
+		t.Errorf("ParseString() did not correctly parse")
+	}
+}
+
+// TestUUID4ParseStringReturnsErrorOnIndex12NotValid tests that ParseString() gives an error when str[12] is not in compliance
+// with RFC 4122
+func TestUUID4ParseStringReturnsErrorOnIndex12NotValid(t *testing.T) {
+	str := "cc2161ae-33c1-bcb1-aa53-e81000f20a30"
+	_, err := ParseString(str)
+
+	if err == nil {
+		t.Errorf("ParseString() should have failed. str[12] is invalid.")
+	}
+}
+
+// TestUUID4ParseStringReturnsErrorOnIndex16NotValid tests that ParseString() gives an error when str[16] is not in compliance
+// with RFC 4122
+func TestUUID4ParseStringReturnsErrorOnIndex16NotValid(t *testing.T) {
+	str := "cc2161ae-33c1-4cb1-ca53-e81000f20a30"
+	_, err := ParseString(str)
+
+	if err == nil {
+		t.Errorf("ParseString() should have failed. str[16] is invalid.")
+	}
+}
+
+// TestUUID4ParseStringReturnsErrorOnBadLength tests that ParseString() gives an error when str is not 32 characters
+func TestUUIDParseStringReturnsErrorOnBadLength(t *testing.T) {
+	str := "cc2161ae-33c1-4cb1-aa53-e81000f20a"
+	_, err := ParseString(str)
+
+	if err == nil {
+		t.Errorf("ParseString() should have failed. str is invalid length")
 	}
 }
