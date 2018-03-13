@@ -6,6 +6,18 @@ An RFC 4122 compliant UUID library
 
 [MIT](LICENSE)
 
+## Installation
+
+```
+$ go get github.com/frankenbeanies/uuid4
+```
+
+## Usage
+
+```go
+import "github.com/frankenbeanies/uuid4"
+```
+
 ## Methods
 
 ### New()
@@ -18,7 +30,7 @@ uuid := uuid4.New()
 
 ### String()
 
-Provides an RFC 4122 comliant string representation of the UUID4
+Provides an RFC 4122 compliant string representation of the UUID4
 
 ```go
 uuidStr := uuid4.New().String()
