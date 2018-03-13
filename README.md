@@ -33,3 +33,11 @@ Provides the byte representation of UUID4
 uuidBytes := uuid4.New().Bytes()
 fmt.Println(uuid)
 ```
+
+### ParseString()
+
+Parses string into a UUID4
+
+```go
+uuid := uuid4.ParseString("cc2161ae-33c1-4cb1-aa53-e81000f20a30")
+```
