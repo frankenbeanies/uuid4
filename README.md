@@ -1,6 +1,6 @@
 # UUID4
 
-[![Build Status](https://travis-ci.org/frankenbeanies/uuid4.svg?branch=master)](https://travis-ci.org/frankenbeanies/uuid4) [![Coverage Status](https://coveralls.io/repos/github/frankenbeanies/uuid4/badge.svg?branch=master)](https://coveralls.io/github/frankenbeanies/uuid4?branch=master)
+[![Build Status](https://travis-ci.org/frankenbeanies/uuid4.svg?branch=master)](https://travis-ci.org/frankenbeanies/uuid4) [![Coverage Status](https://coveralls.io/repos/github/frankenbeanies/uuid4/badge.svg?branch=master)](https://coveralls.io/github/frankenbeanies/uuid4?branch=master) [![Go Report Card](https://goreportcard.com/badge/github.com/frankenbeanies/uuid4)](https://goreportcard.com/report/github.com/frankenbeanies/uuid4) [![GoDoc](https://godoc.org/github.com/frankenbeanies/uuid4?status.svg)](https://godoc.org/github.com/frankenbeanies/uuid4)
 
 An RFC 4122 compliant UUID library
 
