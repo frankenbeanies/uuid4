@@ -1,5 +1,7 @@
 # UUID4
 
+[![Build Status](https://travis-ci.org/frankenbeanies/uuid4.svg?branch=master)](https://travis-ci.org/frankenbeanies/uuid4) [![Coverage Status](https://coveralls.io/repos/github/frankenbeanies/uuid4/badge.svg?branch=master)](https://coveralls.io/github/frankenbeanies/uuid4?branch=master)
+
 An RFC 4122 compliant UUID library
 
 ## License
